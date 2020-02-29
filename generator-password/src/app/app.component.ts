@@ -6,8 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  handleClick() {
-    console.log('buttun was clicked!')
-  }
   title = 'generator-password';
+  password = '';
+
+  handleClick() {
+    this.password = 'MY PASSWORD!!!';
+  }
+
+  getPassword() {
+    return this.password;
+  }
 }
