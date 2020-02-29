@@ -6,14 +6,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  includeLetters = false;
+  includeNumbers = false;
+  includeSymbols = false;
+
   title = 'generator-password';
   password = '';
 
-  handleClick() {
-    this.password = 'MY PASSWORD!!!';
+  onCgangeUseLetters() {
+    this.includeLetters = !this.includeLetters;
   }
 
-  getPassword() {
-    return this.password;
+  onChangeUseNumbers() {
+    this.includeNumbers = !this.includeNumbers;
+  }
+
+  onChangeUseSymbols() {
+    this.includeSymbols = !this.includeSymbols;
+  }
+
+  onButtonClick() {
+    console.log(this.includeLetters);
+    console.log(this.includeNumbers);
+    console.log(this.includeSymbols);
+    this.password = 'MY PASSWORD!!!';
   }
 }
