@@ -9,6 +9,7 @@ export class AppComponent {
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
+  length = 0;
 
   title = 'generator-password';
   password = '';
@@ -25,10 +26,21 @@ export class AppComponent {
     this.includeSymbols = !this.includeSymbols;
   }
 
+  onChangeLength(value: string){
+    const parsedValue = parseInt(value);
+
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
+  }
+
   onButtonClick() {
-    console.log(this.includeLetters);
-    console.log(this.includeNumbers);
-    console.log(this.includeSymbols);
+    console.log(
+      `About to generate a password with the following
+      includes lettes: ${this.includeLetters}
+      includes numbers: ${this.includeNumbers}
+      includes symbols: ${this.includeSymbols}
+      `);
     this.password = 'MY PASSWORD!!!';
   }
 }
