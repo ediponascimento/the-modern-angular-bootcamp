@@ -10,7 +10,6 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
   length = 0;
-
   title = 'generator-password';
   password = '';
 
@@ -35,12 +34,29 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log(
-      `About to generate a password with the following
-      includes lettes: ${this.includeLetters}
-      includes numbers: ${this.includeNumbers}
-      includes symbols: ${this.includeSymbols}
-      `);
-    this.password = 'MY PASSWORD!!!';
+    const numbers = '1234567890';
+    const lettes = 'abcdefghijklmnopqrstuvwxyz';
+    const symbols = '!@#$%*()_+"';
+    
+    let validChar = '';
+
+    if (this.includeLetters) {
+      validChar += lettes;
+    }
+
+    if (this.includeNumbers) {
+      validChar = numbers;
+    }
+
+    if (this.includeSymbols) {
+      validChar += symbols;
+    }
+
+    let generetedPassword = '';
+    for (let i =0; i < this.length; i++) {
+      const index = Math.floor(Math.random() * validChar.length);
+      generetedPassword += validChar[index];
+    }
+    this.password = generetedPassword;
   }
 }
